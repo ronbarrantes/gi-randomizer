@@ -51,7 +51,8 @@
   "lint-staged": {
     "*.{js,ts,tsx}": [
       "eslint --fix"
-    ]
+    ],
+    "*.js": "eslint --cache --fix"
   },
   "dependencies": {
     "react": "^17.0.2"
