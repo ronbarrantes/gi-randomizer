@@ -1,4 +1,6 @@
-export const characterState = [
+import { CharacterInfo } from '../reducers/characterReducer'
+
+export const characterState: CharacterInfo[] = [
 	{
 		id: 1,
 		name: 'Amber',

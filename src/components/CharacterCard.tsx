@@ -1,26 +1,23 @@
 import React from 'react'
-// import LockToggle from './LockToggle'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheck } from '@fortawesome/free-solid-svg-icons'
-
+import AvailableMark from './AvailableMark'
 interface CharacterCardProps{
+	id: number
     name: string;
     isAvailable: boolean;
     isSelectable: boolean;
+	handleAvailable: ((id: number) => void);
 }
 
-const CharacterCard = (props: CharacterCardProps) => {
-	// needs to have a lock button, and an available button
-
-	const { name } = props
+const CharacterCard = ({ id, name, isAvailable, handleAvailable }: CharacterCardProps) => {
 	const size = 100
 	const img = `https://via.placeholder.com/${size}?text=${name}`
 
 	return (
 		<div>
 			<img src={img} alt={ name }/>
-			{/* <button><LockToggle isLocked={!props.isSelectable} /></button> */}
-			<button><FontAwesomeIcon icon={faCheck}/></button>
+			<button onClick={() => handleAvailable(id)}>
+				<AvailableMark isAvailable={isAvailable}/>
+			</button>
 		</div>
 	)
 }
