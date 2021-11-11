@@ -2,7 +2,7 @@ export const characterState = [
 	{
 		id: 1,
 		name: 'Amber',
-		isSelectable: true,
+		isSelectable: false,
 		isAvailable: true,
 	},
 	{
