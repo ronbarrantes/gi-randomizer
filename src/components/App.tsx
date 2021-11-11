@@ -1,48 +1,8 @@
 import React, { useReducer } from 'react'
+import CharacterCard from './CharacterCard'
 
-interface CharacterInfo {
-    id: number;
-    name: string;
-    isAvailable: boolean;
-}
-
-type State = CharacterInfo[]
-
-type Actions =
-    | { type: 'TOGGLE_SELECT', id: number }
-    | { type: 'TOGGLE_AVAILABLE', id: number }
-
-const initialState = [
-    {
-        id: 1,
-        name: 'Amber',
-        isAvailable: true,
-    },
-    {
-        id: 2,
-        name: 'Eula',
-        isAvailable: true,
-    },
-    {
-        id: 3,
-        name: 'Ganyu',
-        isAvailable: false,
-    },
-]
-
-const reducer = (state: State, action: Actions) => {
-    switch(action.type){
-        case 'TOGGLE_AVAILABLE': {
-        //    state.map((item) => item.id === action.id ? !item.isAvailable : item)
-            const newState = state.map((item) => item.id === action.id ? !item.isAvailable : item)
-            return newState as State
-        }
-        default:
-            return state
-    }
-}
-
-const [state, dispatch] = useReducer(reducer, initialState)
+import { characterReducer } from '../reducers/characterReducer'
+import { characterState } from '../state/initialCharacterState'
 
 // THINGS I NEED
 /*
@@ -61,7 +21,23 @@ other stuff
     // PORTAL FOR MODALS
 */
 
-const App = () => (
-    <div>Hello world</div>
-)
+const App = () => {
+	const [state, dispatch] = useReducer(characterReducer, characterState)
+	console.log(state, dispatch)
+
+	return (
+		<>
+			<ul>
+				{state.map(char => <li key={char.id}>
+					<CharacterCard
+						name={char.name}
+						isAvailable={char.isAvailable}
+						isSelectable={char.isSelectable}
+					/>
+				</li>)}
+			</ul>
+		</>
+	)
+}
+
 export default App
