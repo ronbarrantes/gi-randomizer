@@ -3,11 +3,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLock, faUnlock } from '@fortawesome/free-solid-svg-icons'
 
 interface LockToggleProps {
-	isLocked: boolean;
+	isSelectable: boolean;
 }
 
-const LockToggle = ({ isLocked }: LockToggleProps) => {
-	return <FontAwesomeIcon icon={isLocked ? faLock: faUnlock} />
+const SelectableMark = ({ isSelectable }: LockToggleProps) => {
+	return <FontAwesomeIcon icon={isSelectable ? faUnlock : faLock } />
 }
 
-export default LockToggle
+export default SelectableMark
