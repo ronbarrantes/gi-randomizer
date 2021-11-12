@@ -5,7 +5,7 @@ interface CharacterCardProps{
     name: string;
     isAvailable: boolean;
     isSelectable: boolean;
-	handleAvailable: ((id: number) => void);
+	handleAvailable?: ((id: number) => void);
 }
 
 const CharacterCard = ({ id, name, isAvailable, handleAvailable }: CharacterCardProps) => {
@@ -15,9 +15,14 @@ const CharacterCard = ({ id, name, isAvailable, handleAvailable }: CharacterCard
 	return (
 		<div>
 			<img src={img} alt={ name }/>
-			<button onClick={() => handleAvailable(id)}>
-				<AvailableMark isAvailable={isAvailable}/>
-			</button>
+			{
+				handleAvailable && (
+					<button onClick={() => handleAvailable(id)}>
+						<AvailableMark isAvailable={isAvailable}/>
+					</button>
+				)
+			}
+
 		</div>
 	)
 }
