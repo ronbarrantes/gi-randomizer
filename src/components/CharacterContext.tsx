@@ -4,14 +4,14 @@ import { characterReducer, State } from '../reducers/characterReducer'
 import { characterState } from '../state/initialCharacterState'
 
 type HandleCharacterProp = (id: number) => void
-export const CharacterContext = React.createContext<State>({} as State)
-export const CharacterUpdateContext = React.createContext<HandleCharacterProp | null>(null)
+const CharacterContext = React.createContext<State>({} as State)
+const CharacterUpdateContext = React.createContext<HandleCharacterProp | null>(null)
 
 interface CharacterProviderProp {
 	children: React.ReactChild
 }
 
-export const useCharacter = () => {
+export const useCharacters = () => {
 	return useContext(CharacterContext)
 }
 
