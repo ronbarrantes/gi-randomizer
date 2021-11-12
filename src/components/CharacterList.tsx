@@ -1,6 +1,6 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import CharacterCard from './CharacterCard'
-import { CharacterContext, CharacterUpdateContext } from './CharacterContext'
+import { useCharacters, useCharUpdate } from './CharacterContext'
 
 interface Props {
 }
@@ -8,8 +8,8 @@ interface Props {
 type HandleCharacterProp = (id: number) => void
 
 const CharacterList: React.FC<Props> = () => {
-	const chars = useContext(CharacterContext)
-	const handleAvailableChars = useContext(CharacterUpdateContext)
+	const chars = useCharacters()
+	const handleAvailableChars = useCharUpdate()
 	return (
 		<div>
 			<ul>
