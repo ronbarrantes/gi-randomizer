@@ -5,11 +5,11 @@ import App from '../../components/App'
 // TODO: TEST NOT WORKING
 
 describe('App.tsx', () => {
-	it('Should display the title Hello', () => {
-		render(<App />)
-		// const div = screen.getByTestId('app')
-		// // console.log('DIV ===>>>', div)
+    it('Should display the title Hello', () => {
+        render(<App />)
+        // const div = screen.getByTestId('app')
+        // // console.log('DIV ===>>>', div)
 
-		// expect(div).toBeInTheDocument()
-	})
+        // expect(div).toBeInTheDocument()
+    })
 })
