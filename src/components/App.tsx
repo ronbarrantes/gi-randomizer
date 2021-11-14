@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { CharacterProvider } from './CharacterContext'
+import { CharacterProvider } from '../context/CharacterContext'
 import CharacterList from './CharacterList'
 import RandomizedTeam from './RandomizedTeam'
 
