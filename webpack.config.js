@@ -12,9 +12,9 @@ const plugins = [
 	new CleanWebpackPlugin(),
 	new CopyWebpackPlugin({ patterns: [{ from: 'public', to: 'public' }] }),
 	new HtmlWebpackPlugin({
-		title: 'To Do App',
+		title: 'Genshin Randomizer',
 		meta: { viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no' },
-		favicon: './public/assets/favicon.png',
+		// favicon: './public/assets/favicon.png',
 	}),
 ]
 
