@@ -1,6 +1,13 @@
-export interface CharacterInfo {
+export interface Character {
+	name: string;
+	image: string;
+	type?: 'cryo' | 'pyro' | 'electro'
+	| 'hydro' | 'geo' | 'anemo' | 'dendro';
+	region?: 'Mondstadt' | 'Liyue' | 'Inazuma'
+}
+
+export interface CharacterInfo extends Character {
     id: number;
-    name: string;
     isSelectable: boolean,
     isAvailable: boolean;
 }
