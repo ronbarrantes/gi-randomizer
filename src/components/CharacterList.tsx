@@ -23,6 +23,7 @@ const CharacterList: React.FC<Props> = () => {
 				<li key={char.id}>
 					<CharacterCard
 						id={char.id}
+						image={char.image}
 						handleAvailable={handleAvailableChars as HandleCharacterProp}
 						name={char.name}
 						isAvailable={char.isAvailable}

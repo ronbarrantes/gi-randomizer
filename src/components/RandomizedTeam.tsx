@@ -30,6 +30,7 @@ export const RandomizedTeam: React.FC = () => {
 				{state.map(char => <li key={char.id}>
 					<CharacterCard
 						id={char.id}
+						image={char.image}
 						name={char.name}
 						isAvailable={char.isAvailable}
 						isSelectable={char.isSelectable}
