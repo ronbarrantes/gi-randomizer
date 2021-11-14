@@ -1,8 +1,8 @@
-import React, { useReducer } from 'react'
+import React, { useReducer, useEffect } from 'react'
 import { selectedCharacterReducer } from '../reducers/selectedCharacterReducer'
 import { charactersAvailable, CharacterInfo } from '../reducers/characterReducer'
 import { randomizeCharacters } from '../utils'
-import { useCharacters } from '../components/CharacterContext'
+import { useCharacters } from '../context/CharacterContext'
 import CharacterCard from './CharacterCard'
 
 export const RandomizedTeam: React.FC = () => {
@@ -14,10 +14,19 @@ export const RandomizedTeam: React.FC = () => {
 		dispatch({ type: 'RANDOMIZE_CHARACTERS', characters: randomizedTeam })
 	}
 
+	const randomCharacterList: React.CSSProperties = {
+		display: 'flex',
+		margin: '0',
+	}
+
+	useEffect(() => {
+		handleRandomize()
+	}, [])
+
 	return (
 		<div>
 			<button onClick={handleRandomize}>Randomize</button>
-			<ul>
+			<ul style={randomCharacterList}>
 				{state.map(char => <li key={char.id}>
 					<CharacterCard
 						id={char.id}
